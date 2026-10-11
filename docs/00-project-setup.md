@@ -125,6 +125,19 @@ Configures TypeScript and path resolution:
 - **Why it occurred:** Expo templates store previous starter code in an `example/` folder when reset. TypeScript was scanning every file matching `**/*.ts`.
 - **Takeaway:** Add `"example"` to the `exclude` array in `tsconfig.json`.
 
+### Lesson 4: Path aliases (`@assets` vs `@/assets`) and image imports
+- **Issue:** `Cannot find module '@assets/home.png' or its corresponding type declarations`.
+- **Why it occurred:** 
+  1. `tsconfig.json` had `"@/assets/*"` (with slash), but the import was `@assets/...` (without slash).
+  2. The wildcard mapping on `"@/*": ["."]` lacked a matching `*` on the right side.
+  3. TypeScript requires ambient module declarations (`declare module "*.png"`) to import image files as ES modules.
+- **Takeaway:** Configure both `@assets/*` and `@/assets/*` in `tsconfig.json` paths, and include an `icons.d.ts` (or `declarations.d.ts`) declaring image modules.
+
+### Lesson 5: Keep non-route files outside `src/app/`
+- **Issue:** Placing files like `constants/icons.ts` or `components/` inside `src/app/`.
+- **Why it occurred:** Expo Router treats every file in `src/app/` as a navigable screen route.
+- **Takeaway:** Place non-route files (constants, components, hooks, utils) in `src/constants/`, `src/components/`, etc., outside of `src/app/`.
+
 ---
 
 ## 6. Essential Commands for Daily Workflow
