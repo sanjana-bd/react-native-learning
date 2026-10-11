@@ -11,11 +11,11 @@ Documentation and revision notes covering components, styling, state management,
 | 00 | **Project Setup & Architecture** | [00-project-setup.md](./docs/00-project-setup.md) | Expo SDK 57, Expo Router, NativeWind v5 + Tailwind v4, config files, and setup troubleshooting. |
 | 01 | **Core Components** | [01-core-components.md](./docs/01-core-components.md) | Fundamentals of `<View>`, `<Text>`, web comparisons, and rules. |
 | 02 | **Styling & NativeWind** | [02-styling-and-nativewind.md](./docs/02-styling-and-nativewind.md) | Traditional `StyleSheet` vs Tailwind CSS (NativeWind v5), setup, and debugging. |
-| 03 | **Layout & Flexbox** | *Coming next* | `flexDirection`, `justifyContent`, `alignItems`, `flex`. |
-| 04 | **Handling Touches & User Input** | *Coming next* | `Pressable`, `TouchableOpacity`, `TextInput`, `Button`. |
-| 05 | **Lists & Scrollables** | *Coming next* | `ScrollView`, `FlatList`, `SectionList`, performance. |
-| 06 | **State Management & Hooks** | *Coming next* | `useState`, `useEffect`, custom hooks, and state patterns. |
-| 07 | **Navigation (Expo Router)** | *Coming next* | File-based routing, Stack, Tabs, and layout files. |
+| 03 | **Navigation (Expo Router)** | [03-navigation-and-expo-router.md](./docs/03-navigation-and-expo-router.md) | File-based routing, Stack, Tabs, Route Groups, and dynamic routes. |
+| 04 | **Layout & Flexbox** | *Coming next* | `flexDirection`, `justifyContent`, `alignItems`, `flex`. |
+| 05 | **Handling Touches & User Input** | *Coming next* | `Pressable`, `TouchableOpacity`, `TextInput`, `Button`. |
+| 06 | **Lists & Scrollables** | *Coming next* | `ScrollView`, `FlatList`, `SectionList`, performance. |
+| 07 | **State Management & Hooks** | *Coming next* | `useState`, `useEffect`, custom hooks, and state patterns. |
 | 08 | **Third-Party Libraries** | *Coming next* | Installed libraries, setup guides, and practical usage. |
 
 ---
