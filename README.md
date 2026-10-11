@@ -8,6 +8,7 @@ Documentation and revision notes covering components, styling, state management,
 
 | # | Topic | Document | Description |
 |---|---|---|---|
+| 00 | **Project Setup & Architecture** | [00-project-setup.md](./docs/00-project-setup.md) | Expo SDK 57, Expo Router, NativeWind v5 + Tailwind v4, config files, and setup troubleshooting. |
 | 01 | **Core Components** | [01-core-components.md](./docs/01-core-components.md) | Fundamentals of `<View>`, `<Text>`, web comparisons, and rules. |
 | 02 | **Styling & NativeWind** | [02-styling-and-nativewind.md](./docs/02-styling-and-nativewind.md) | Traditional `StyleSheet` vs Tailwind CSS (NativeWind v5), setup, and debugging. |
 | 03 | **Layout & Flexbox** | *Coming next* | `flexDirection`, `justifyContent`, `alignItems`, `flex`. |
