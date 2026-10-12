@@ -7,7 +7,7 @@ const SafeAreaView = styled(RSafeAreaView);
 
 export default function App() {
   return (
-    <SafeAreaView className="flex-1 items-center justify-center bg-white px-4">
+    <SafeAreaView className="flex-1 items-center justify-center bg-background px-4">
       <View>
         <Text className="text-2xl font-bold text-slate-900 mb-6">
           Welcome to Nativewind!

@@ -6,8 +6,11 @@
 
 @theme {
     /* COLOR VARIABLES */
-    --color-primary: #801126;
+    --color-primary: #181818;
+    --color-background: #FEEFE7;
+    --color-secondary: #797979;
+}
 
-    /* SPACING VARIABLES */
-    --spacing-0: 0px;
+@layer components {
+
 }
