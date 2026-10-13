@@ -2,9 +2,10 @@ import { addTodo } from "@/utils/add-todo";
 import { router } from "expo-router";
 import { useState } from "react";
 import { Alert, Pressable, Text, TextInput, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { styled } from "nativewind";
+import { SafeAreaView as RSafeAreaView } from "react-native-safe-area-context";
 
-let TODO_CURR_COUNT = 1;
+const SafeAreaView = styled(RSafeAreaView);
 
 const AddTodo = () => {
   const [title, setTitle] = useState("");
@@ -16,56 +17,76 @@ const AddTodo = () => {
       return;
     }
 
-    addTodo({ title, description, id: TODO_CURR_COUNT++ });
+    addTodo({ title, description, id: Date.now() });
     setTitle("");
     setDescription("");
-    router.push("/tabs");
+    router.push("/");
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-background p-8">
-      <Text className="text-2xl font-bold text-primary mb-6">Create Todo</Text>
+    <SafeAreaView className="flex-1 bg-background">
+      <View className="flex-1 px-6 pt-6 max-w-xl mx-auto w-full">
+        {/* Header */}
+        <View className="mb-8">
+          <Text className="text-xs font-semibold text-secondary uppercase tracking-widest mb-1">
+            NEW TASK
+          </Text>
+          <Text className="text-3xl font-extrabold text-primary">Create Task</Text>
+          <Text className="text-secondary text-sm mt-1">
+            Stay organized by writing down your goals.
+          </Text>
+        </View>
 
-      {/* Title Input */}
-      <View className="mb-5">
-        <Text className="text-sm font-semibold text-primary mb-2">Title</Text>
-        <TextInput
-          className="bg-white border border-secondary/30 rounded-xl px-4 py-3 text-base text-primary"
-          inputMode="text"
-          value={title}
-          onChangeText={setTitle}
-          placeholder="Enter title"
-          placeholderTextColor="#797979"
-        />
+        {/* Title Input Card */}
+        <View className="mb-5">
+          <Text className="text-xs font-bold text-primary uppercase tracking-wider mb-2">
+            Task Title
+          </Text>
+          <TextInput
+            className="bg-white border border-border rounded-2xl px-4 py-3.5 text-base text-primary shadow-sm"
+            inputMode="text"
+            value={title}
+            onChangeText={setTitle}
+            placeholder="e.g. Redesign mobile onboarding"
+            placeholderTextColor="#A8A29E"
+          />
+        </View>
+
+        {/* Description Input Card */}
+        <View className="mb-8">
+          <View className="flex-row items-center justify-between mb-2">
+            <Text className="text-xs font-bold text-primary uppercase tracking-wider">
+              Notes / Description
+            </Text>
+            <Text className="text-xs text-secondary">
+              {description.length}/150
+            </Text>
+          </View>
+          <TextInput
+            className="bg-white border border-border rounded-2xl px-4 py-3.5 text-base text-primary h-36 shadow-sm"
+            multiline
+            inputMode="text"
+            maxLength={150}
+            placeholder="Add details, links, or notes..."
+            placeholderTextColor="#A8A29E"
+            editable
+            numberOfLines={4}
+            textAlignVertical="top"
+            value={description}
+            onChangeText={setDescription}
+          />
+        </View>
+
+        {/* Action Button */}
+        <Pressable
+          className="bg-accent py-4 rounded-2xl items-center active:scale-[0.99] active:opacity-90 shadow-md shadow-accent/25"
+          onPress={handleAddTodo}
+        >
+          <Text className="text-white font-bold text-base tracking-wide">
+            + Create Task
+          </Text>
+        </Pressable>
       </View>
-
-      {/* Description Input */}
-      <View className="mb-6">
-        <Text className="text-sm font-semibold text-primary mb-2">
-          Description
-        </Text>
-        <TextInput
-          className="bg-white border border-secondary/30 rounded-xl px-4 py-3 text-base text-primary h-32"
-          multiline
-          inputMode="text"
-          maxLength={150}
-          placeholder="Enter description"
-          placeholderTextColor="#797979"
-          editable
-          numberOfLines={4}
-          textAlignVertical="top"
-          value={description}
-          onChangeText={setDescription}
-        />
-      </View>
-
-      {/* Button using theme primary color */}
-      <Pressable
-        className="bg-primary py-4 rounded-xl items-center active:opacity-85"
-        onPress={handleAddTodo}
-      >
-        <Text className="text-white font-semibold text-base">Add Todo</Text>
-      </Pressable>
     </SafeAreaView>
   );
 };

@@ -6,14 +6,15 @@ export const editTodo = (todo: TTodo) => {
         const { title, description } = todo;
         const data = window?.localStorage?.getItem(TODO_KEY);
         const parsedData = data ? JSON.parse(data) : [];
-        if(Array.isArray(parsedData)) {
+        if (Array.isArray(parsedData)) {
             const ind = parsedData.findIndex(({ id }) => id === todo.id);
-            if(ind !== -1) {
-                parsedData[ind] = {...parsedData[ind], title, description};
+            if (ind !== -1) {
+                parsedData[ind] = { ...parsedData[ind], title, description };
             }
             window?.localStorage?.setItem(TODO_KEY, JSON.stringify(parsedData));
-        } 
-        throw new Error('Data inconsistency...');
+        } else {
+            throw new Error('Data inconsistency...');
+        }
     } catch (error) {
         console.error('Error while editing information', error);   
     }

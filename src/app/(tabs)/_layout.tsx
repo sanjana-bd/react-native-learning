@@ -10,15 +10,21 @@ type TabsIconProps = {
 
 const TabsIconLayout = ({ focused, icon, color }: TabsIconProps) => (
   <View className="items-center justify-center">
-    <Image
-      source={icon}
-      resizeMode="contain"
-      style={{
-        width: 24,
-        height: 24,
-        tintColor: color,
-      }}
-    />
+    <View
+      className={`w-11 h-11 rounded-full items-center justify-center ${
+        focused ? "bg-indigo-500/20" : "bg-transparent"
+      }`}
+    >
+      <Image
+        source={icon}
+        resizeMode="contain"
+        style={{
+          width: 22,
+          height: 22,
+          tintColor: focused ? "#818CF8" : "#94A3B8",
+        }}
+      />
+    </View>
   </View>
 );
 
@@ -29,9 +35,21 @@ const TabsLayout = () => {
         headerShown: false,
         tabBarShowLabel: false,
         tabBarStyle: {
-          height: 60,
-          paddingBottom: 8,
-          paddingTop: 8,
+          position: "absolute",
+          bottom: 24,
+          left: 48,
+          right: 48,
+          height: 64,
+          backgroundColor: "#0F172A",
+          borderRadius: 32,
+          borderTopWidth: 0,
+          elevation: 10,
+          shadowColor: "#0F172A",
+          shadowOffset: { width: 0, height: 8 },
+          shadowOpacity: 0.25,
+          shadowRadius: 16,
+          paddingTop: 10,
+          paddingBottom: 10,
         },
       }}
     >

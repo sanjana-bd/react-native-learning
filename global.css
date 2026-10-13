@@ -5,10 +5,13 @@
 @import "nativewind/theme";
 
 @theme {
-    /* COLOR VARIABLES */
-    --color-primary: #181818;
-    --color-background: #FEEFE7;
-    --color-secondary: #797979;
+    /* COLOR VARIABLES - Clean Slate & Indigo */
+    --color-primary: #0F172A;
+    --color-background: #F8FAFC;
+    --color-secondary: #64748B;
+    --color-card: #FFFFFF;
+    --color-accent: #4F46E5;
+    --color-border: #E2E8F0;
 }
 
 @layer components {
